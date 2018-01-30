@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Starting..."
+sysctl -w net.ipv4.ip_forward=1
+iptables -t nat -A POSTROUTING -j MASQUERADE
+openvpn ./config/ovpn.conf > ./log/ovpn.log &
+
+bundle exec rake db:create
+bundle exec rake db:migrate
+
+bundle exec ruby app.rb -p 9292 -o 0.0.0.0

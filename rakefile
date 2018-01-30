@@ -1,0 +1,26 @@
+require "sinatra/activerecord"
+require "sinatra/activerecord/rake"
+require "./app"
+
+task default: %w[test:test_app]
+
+namespace :server do
+  desc "Install server dependencies"
+  task :install do
+    `gem install bundler`
+    `bundle install --jobs=3 --retry=3 --deployment`
+  end
+
+  desc "Launch web server"
+  task :run do
+    `rackup`
+  end
+end
+
+namespace :test do
+    desc "Unit tests"
+    task :test_app do
+        ruby "test/app_test.rb"
+    end
+end
+

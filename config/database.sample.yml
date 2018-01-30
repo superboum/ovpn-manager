@@ -1,0 +1,14 @@
+development:
+  adapter: sqlite3
+  database: persist/dev.db
+  host: ~
+  username: ~
+  password: ~
+
+prod:
+  adapter: sqlite3
+  database: persist/prod.db
+  host: ~
+  username: ~
+  password: ~
+

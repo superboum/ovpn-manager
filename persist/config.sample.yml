@@ -1,0 +1,16 @@
+cookie_secret: "toto"
+mail:
+  server: "smtp.provider.tld"
+  port: 587
+  starttls: true
+  username: "you@provider.tld"
+  password: "password"
+  ssl_no_verify: false
+  auth: "login"
+  from: "you@provider.tld"
+name: "you"
+base_url: "http://127.0.0.1:9292"
+remotes: |
+  remote vpn01.provider.tld 1194
+  remote vpn01.provider.tld 8010
+  remote vpn02.provider.tld 1194

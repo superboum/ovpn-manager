@@ -1,0 +1,63 @@
+!!!
+%html{:lang => "fr", "xml:lang" => "fr", "ng-app" => "colloquiumApp" }
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title vpn.quarah.tk
+    %link{:href => "https://storage.googleapis.com/code.getmdl.io/1.0.4/material.teal-indigo.min.css",  :rel => "stylesheet", :type => "text/css"}
+    %meta{:name => "viewport",  :content => "width=device-width, initial-scale=1"} 
+
+    :css
+      .auth-card.mdl-card {
+        width: 100%;
+      }
+      .auth-card > .mdl-card__title {
+        color: #fff;
+        height: 160px;
+        background:
+          url('/img/dog.png') bottom right 15% no-repeat #46B6AC;
+      }
+      
+      .create-account-card.mdl-card {
+        width: 100%;
+      }
+      .create-account-card > .mdl-card__title {
+        color: #fff;
+        height: 160px;
+        background:
+          url('/img/dog.png') bottom right 15% no-repeat #46B6AC;
+      }
+      
+      .time-card.mdl-card {
+        width: 100%;
+      }
+      .time-card > .mdl-card__title {
+        color: #fff;
+        height: 160px;
+        background:
+          url('/img/time.png') bottom right no-repeat #46B6AC;
+      }
+      
+      .config-card.mdl-card {
+        width: 100%;
+      }
+      .config-card > .mdl-card__title {
+        color: #fff;
+        height: 160px;
+        background:
+          url('/img/config.png') bottom right no-repeat #46B6AC;
+      }
+      
+      .invit-card.mdl-card {
+        width: 100%;
+      }
+      .invit-card > .mdl-card__title {
+        color: #fff;
+        height: 160px;
+        background:
+          url('/img/invit.png') bottom right no-repeat #46B6AC;
+      }
+   
+  %body
+    = yield
+    %script{:src => "https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"}
+

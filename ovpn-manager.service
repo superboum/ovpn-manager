@@ -1,0 +1,16 @@
+[Unit]
+Description=OvpnManager
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill ovpn-manager-01
+ExecStartPre=-/usr/bin/docker rm ovpn-manager-01
+ExecStartPre=/usr/bin/docker build -t ovpn-manager /srv/glados/services/ovpn-manager
+ExecStart=/usr/bin/docker run --name ovpn-manager-01 -v=/srv/glados/services/ovpn-manager/persist:/root/manager/persist --privileged -p 9292:9292 -p 1194:1194/udp -i ovpn-manager
+User=root
+
+[Install]
+WantedBy=multi-user.target
+
