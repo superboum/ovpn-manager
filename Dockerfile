@@ -11,7 +11,7 @@ RUN gem install bundler
 
 ADD . /root/manager
 WORKDIR /root/manager
-RUN git reset --hard HEAD && rm -rf .git/ persist/
+RUN git reset --hard HEAD && rm -rf .git/ persist/* log/*
 RUN bundle install
 RUN cp config/database.sample.yml config/database.yml
 
