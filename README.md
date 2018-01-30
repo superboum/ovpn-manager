@@ -50,11 +50,11 @@ cp config/database.sample.yml config/database.yml
 cp persist/config.sample.yml persist/config.yml
 bundle exec rake --tasks
 bundle exec rake db:create
-bundle exec rake rake db:migrate
+bundle exec rake db:migrate
 bundle exec racksh 'u = User.new :email => "you@provider.tld"; u.set_password("toto"); u.save'
 ```
 
-(racksh is very impressive, you can access to your environment as a shell, a REPL with your database initialized).
+(racksh is very impressive, you can access to your environment in a REPL with your configurations loaded).
 
 Build the container:
 
