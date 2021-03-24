@@ -52,7 +52,7 @@ class Ovpn
     root_key = OpenSSL::PKey::RSA.new File.read CAKEY
 
     puts "Generating "+name+" Private Key ("+name+".key)"
-    key = OpenSSL::PKey::RSA.new 2048
+    key = OpenSSL::PKey::RSA.new 4096
     File.write(KEYS+name+".key", key)
     puts "Generation success !"
 
