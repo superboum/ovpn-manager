@@ -15,14 +15,14 @@ class Ovpn
   
   def generate_diffie
     puts "Generating Diffie-Hellman Key (dh.pem)"
-    diffie = OpenSSL::PKey::DH.new(1024)
+    diffie = OpenSSL::PKey::DH.new(4096)
     File.write(DHPEM, diffie)
     puts "Generation success !"
   end
 
   def generate_certificate_authority
     puts "Generating Certificate Authority Private Key (ca.key)"
-    root_key = OpenSSL::PKey::RSA.new 1024 # the CA's public/private key
+    root_key = OpenSSL::PKey::RSA.new 4096 # the CA's public/private key
     File.write(CAKEY, root_key)
     puts "Generation success !"
     
