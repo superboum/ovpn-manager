@@ -115,12 +115,12 @@ def invite(email)
     :subject => 'Invitation VPN', 
     :body => "Vous avez été invité à vous créer un compte sur le VPN Celeris.\nSi vous souhaitez vous inscrire, rendez-vous sur #{settings.base_url}/create_account?token="+u.token+" \nSinon, vous pouvez ignorer cet email."
   )
-
-  logger.info "Email sent to "+params[:email]+" with token "+u.token
+  return u
 end
 
 post '/invite' do
   restrictToUser!
-  invite(params[:email])
+  u = invite(params[:email])
+  logger.info "Email sent to "+params[:email]+" with token "+u.token
   redirect to('/'), 303
 end
