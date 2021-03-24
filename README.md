@@ -61,3 +61,12 @@ Build the container:
 ```
 sudo docker build -t superboum/ovpn-manager .
 ```
+
+## Notes
+
+Create the `~/.bundle/config` file:
+
+```
+---
+BUNDLE_PATH: "vendor/bundle"
+```
