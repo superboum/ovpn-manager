@@ -106,12 +106,21 @@ get '/' do
 
 end
 
-post '/invite' do
-  restrictToUser!
+def invite(email)
   u = User.new
   u.token = SecureRandom.urlsafe_base64
   u.save
-  Pony.mail(:to => params[:email], :subject => 'Invitation VPN', :body => "Vous avez été invité à vous créer un compte sur le VPN Celeris.\nSi vous souhaitez vous inscrire, rendez-vous sur #{settings.base_url}/create_account?token="+u.token+" \nSinon, vous pouvez ignorer cet email.")
+  Pony.mail(
+    :to => email, 
+    :subject => 'Invitation VPN', 
+    :body => "Vous avez été invité à vous créer un compte sur le VPN Celeris.\nSi vous souhaitez vous inscrire, rendez-vous sur #{settings.base_url}/create_account?token="+u.token+" \nSinon, vous pouvez ignorer cet email."
+  )
+
   logger.info "Email sent to "+params[:email]+" with token "+u.token
+end
+
+post '/invite' do
+  restrictToUser!
+  invite(params[:email])
   redirect to('/'), 303
 end

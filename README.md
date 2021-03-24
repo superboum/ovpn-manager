@@ -39,7 +39,7 @@ sudo docker run \
   superboum/ovpn-manager
 
 sudo docker exec -t -i ovpn-manager-01 \
-  bundle exec racksh 'u = User.new :email => "you@provider.tld"; u.set_password("toto"); u.save'
+  bundle exec racksh 'invite("you@provider.tld")'
 
 ```
 
@@ -51,7 +51,7 @@ cp persist/config.sample.yml persist/config.yml
 bundle exec rake --tasks
 bundle exec rake db:create
 bundle exec rake db:migrate
-bundle exec racksh 'u = User.new :email => "you@provider.tld"; u.set_password("toto"); u.save'
+bundle exec racksh 'invite("you@provider.tld")'
 ```
 
 (racksh is very impressive, you can access to your environment in a REPL with your configurations loaded).
