@@ -30,7 +30,7 @@ Pony.options = {
 }
 
 o = Ovpn.new()
-o.generate_server_keys unless File.exists?('persist/keys/server.key')
+o.generate_server_keys unless File.exist?('persist/keys/server.key')
 
 helpers do
   def user?

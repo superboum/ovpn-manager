@@ -13,6 +13,9 @@ gem "pony"
 gem "rack"
 gem "rack-test"
 
+# LOW-LEVEL DEPS
+gem "ostruct"
+
 #TOOLS
 gem "rake"
 gem "minitest"
